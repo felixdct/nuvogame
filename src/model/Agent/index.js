@@ -13,6 +13,7 @@ class Agent extends Cell {
 
     calculateAliveNeighbours() {
         let sum = 0;
+        console.log(this.neighbourdCells.length)
         for(let i = 0; i < this.neighbourdCells.length; i++) {
             sum += this.neighbourdCells[i].state;
         }
@@ -21,31 +22,37 @@ class Agent extends Cell {
 
     applyRules() {
         const totalAliveNeighbours = this.calculateAliveNeighbours();
-        this.nextState = this.state;
+        //console.log(totalAliveNeighbours);
         if (
             this.state = 1 &&
             (totalAliveNeighbours < 2 || totalAliveNeighbours > 3)
         ) {
-            setNextState(0)
+            this.setNextState(0)
         }
         if (this.state === 0 && totalAliveNeighbours === 3) {
-            setNextState(1)
+            this.setNextState(1);
         }
     }
 
-    addNeighbours() {
-        console.log(board.rows)
+    setNewState() {
+        this.state = this.nextState;
+    }
+
+    addNeighbours = (board) => {
         let xNeighbour;
         let yNeighbour;
         for(let i=-1; i<2; i++){
             for(let j=-1; j<2; j++){
-                xNeighbour = (this.x + i + this.board.rows) % this.board.rows;
-                yNeighbour = (this.y + j + this.board.columns) % this.board.columns;
+                xNeighbour = (this.x + i + board.rows) % board.rows;
+                yNeighbour = (this.y + j + board.columns) % board.columns;
 
                 // I can't be my own neighbour
-                if(i !== 0 || j !== 0){
-                    this.neighbourdCells.push(this.board[yNeighbour][xNeighbour]);
+                if(i == 0 && j === 0) {
+                    continue;
                 }
+
+                this.neighbourdCells.push(board.board[xNeighbour][yNeighbour]);
+
             }
         }
     }

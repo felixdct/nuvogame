@@ -34,7 +34,8 @@ class Board {
 
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
-                this.board[i][j].addNeighbours.bind(this);
+
+                this.board[i][j].addNeighbours(this);
             }
         }
     }
@@ -52,6 +53,19 @@ class Board {
             result += "\n"
         }
         return result;
+    }
+
+    updateBoard() {
+        for(let i = 0; i<this.rows; i++){
+            for (let j = 0; j<this.columns; j++) {
+                this.board[i][j].applyRules();
+            }
+        }
+        for(let i = 0; i<this.rows; i++){
+            for (let j = 0; j<this.columns; j++) {
+                this.board[i][j].setNewState();
+            }
+        }
     }
 }
 
