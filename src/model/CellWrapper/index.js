@@ -1,6 +1,6 @@
 const Cell = require('../Cell')
 
-class Agent extends Cell {
+class CellWrapper extends Cell {
     constructor(x, y, state) {
         super(x, y, state);
         this.newState = state;
@@ -56,4 +56,4 @@ class Agent extends Cell {
     }
 }
 
-module.exports = Agent;
+module.exports = CellWrapper;

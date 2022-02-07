@@ -1,5 +1,5 @@
 const { createEmptyMatrix } = require('../../utils/util');
-const Agent = require('../Agent') 
+const CellWrapper = require('../CellWrapper') 
 
 class Board {
     constructor(rows, columns) {
@@ -13,7 +13,7 @@ class Board {
 
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
-                matrix[i][j] = new Agent(i, j, 0);
+                matrix[i][j] = new CellWrapper(i, j, 0);
             }
         }
         return matrix;
