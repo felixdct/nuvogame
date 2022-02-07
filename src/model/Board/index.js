@@ -80,17 +80,25 @@ class Board {
         return result;
     }
 
-    updateBoard() {
+    applyRuleToAllCellsIntoBoard() {
         for(let i = 0; i<this.rows; i++){
             for (let j = 0; j<this.columns; j++) {
                 this.board[i][j].applyRules();
             }
         }
+    }
+
+    setNewStateToAllCellsIntoBoard() {
         for(let i = 0; i<this.rows; i++){
             for (let j = 0; j<this.columns; j++) {
                 this.board[i][j].setNewState();
             }
         }
+    }
+
+    updateBoard() {
+        this.applyRuleToAllCellsIntoBoard();
+        this.setNewStateToAllCellsIntoBoard();
     }
 }
 
