@@ -1,0 +1,24 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "Game of life implemented in node js",
+  "main": "nodemon src/index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felixdct/nuvogame.git"
+  },
+  "author": "Felix De la Cruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felixdct/nuvogame/issues"
+  },
+  "homepage": "https://github.com/felixdct/nuvogame#readme",
+  "dependencies": {
+    "log-update": "2.1.0",
+    "nodemon": "1.11.0"
+  }
+}

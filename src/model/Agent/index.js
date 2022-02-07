@@ -1,0 +1,53 @@
+const Cell = require('../Cell')
+
+class Agent extends Cell {
+    constructor(x, y, state) {
+        super(x, y, state);
+        this.newState = state;
+        this.neighbourdCells = [];
+    }
+
+    setNextState(state) {
+        this.nextState = state;
+    }
+
+    calculateAliveNeighbours() {
+        let sum = 0;
+        for(let i = 0; i < this.NeighbourdCells.length; i++) {
+            sum += this.NeighbourdCells[i].state;
+        }
+        return sum;
+    }
+
+    applyConwaysRules() {
+        const totalAliveNeighbours = this.calculateAliveNeighbours();
+        this.nextState = this.state;
+        if (
+            this.state = 1 &&
+            (totalAliveNeighbours < 2 || totalAliveNeighbours > 3)
+        ) {
+            setNextState(0)
+        }
+        if (this.state === 0 && totalAliveNeighbours === 3) {
+            setNextState(1)
+        }
+    }
+
+    addNeighbours(board) {
+        let xNeighbour;
+        let yNeighbour;
+        for(let i=-1; i<2; i++){
+            for(let j=-1; j<2; j++){
+                xNeighbour = (this.x + j + board.columns) % board.columns;
+                yNeighbour = (this.y + i + board.rows) % board.rows;
+
+                // I can't be my own neighbour
+                if(i!=0 || j!=0){
+                    this.neighbourdCells.push(board[yNeighbour][xNeighbour]);
+                }
+            }
+        }
+    }
+}
+
+module.exports = Agent;
