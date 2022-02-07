@@ -23,6 +23,7 @@ class CellWrapper extends Cell {
 
     applyRules() {
         const totalAliveNeighbours = this.calculateAliveNeighbours();
+        this.nextState = this.state;
 
         if (this.state == 1 && (totalAliveNeighbours < 2 || totalAliveNeighbours > 3)) {
             this.setNextState(0)
@@ -33,7 +34,7 @@ class CellWrapper extends Cell {
     }
 
     setNewState() {
-        this.setState(this.nextState || 0);
+        this.setState(this.nextState);
     }
 
     addNeighbours = (board) => {
