@@ -9,15 +9,12 @@ const printTable = (board) => {
 const start = () => {
     const board = new Board(10, 10);
     board.initializeBoard();
-    console.log(board.draw())
-    board.updateBoard();
-    console.log(board.draw());
-    // setInterval(() => {
-    //     logUpdate(board.draw());
-    //     //console.log(board.draw())
-    //     board.updateBoard();
-    //     //console.log(board.draw());
-    // }, 5000);
+    setInterval(() => {
+        logUpdate(board.draw());
+        //console.log(board.draw())
+        board.updateBoard();
+        //console.log(board.draw());
+    }, 1000);
 }
 
 start();

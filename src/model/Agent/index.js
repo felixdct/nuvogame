@@ -12,8 +12,9 @@ class Agent extends Cell {
     }
 
     calculateAliveNeighbours() {
+
         let sum = 0;
-        console.log(this.neighbourdCells.length)
+        //console.log("neigboursLength", this.neighbourdCells.length)
         for(let i = 0; i < this.neighbourdCells.length; i++) {
             sum += this.neighbourdCells[i].state;
         }
@@ -22,14 +23,13 @@ class Agent extends Cell {
 
     applyRules() {
         const totalAliveNeighbours = this.calculateAliveNeighbours();
-        //console.log(totalAliveNeighbours);
+        //console.log("totalAliveNeighbours: ", totalAliveNeighbours);
         if (
-            this.state = 1 &&
             (totalAliveNeighbours < 2 || totalAliveNeighbours > 3)
         ) {
             this.setNextState(0)
         }
-        if (this.state === 0 && totalAliveNeighbours === 3) {
+        if (totalAliveNeighbours === 3) {
             this.setNextState(1);
         }
     }

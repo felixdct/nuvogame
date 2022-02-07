@@ -31,6 +31,8 @@ class Board {
 
     initializeBoard() {
         this.createRandomStates();
+        //this.board[5,2]
+        
 
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
