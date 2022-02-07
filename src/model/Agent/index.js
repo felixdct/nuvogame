@@ -13,8 +13,8 @@ class Agent extends Cell {
 
     calculateAliveNeighbours() {
         let sum = 0;
-        for(let i = 0; i < this.NeighbourdCells.length; i++) {
-            sum += this.NeighbourdCells[i].state;
+        for(let i = 0; i < this.neighbourdCells.length; i++) {
+            sum += this.neighbourdCells[i].state;
         }
         return sum;
     }
@@ -33,17 +33,18 @@ class Agent extends Cell {
         }
     }
 
-    addNeighbours(board) {
+    addNeighbours() {
+        console.log(board.rows)
         let xNeighbour;
         let yNeighbour;
         for(let i=-1; i<2; i++){
             for(let j=-1; j<2; j++){
-                xNeighbour = (this.x + j + board.columns) % board.columns;
-                yNeighbour = (this.y + i + board.rows) % board.rows;
+                xNeighbour = (this.x + i + this.board.rows) % this.board.rows;
+                yNeighbour = (this.y + j + this.board.columns) % this.board.columns;
 
                 // I can't be my own neighbour
-                if(i!=0 || j!=0){
-                    this.neighbourdCells.push(board[yNeighbour][xNeighbour]);
+                if(i !== 0 || j !== 0){
+                    this.neighbourdCells.push(this.board[yNeighbour][xNeighbour]);
                 }
             }
         }

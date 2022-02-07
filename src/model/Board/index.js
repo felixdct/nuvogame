@@ -29,12 +29,10 @@ class Board {
 
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
-                this.board[i][j].addNeighbours(this.board);
+                this.board[i][j].addNeighbours.bind(this);
             }
         }
     }
-
-    
 
     draw() {
         let result = "";
