@@ -4,6 +4,10 @@ class Cell {
         this.y = y;
         this.state = state;
     }
+
+    setState(state) {
+        this.state = state;
+    }
 }
 
 module.exports = Cell;

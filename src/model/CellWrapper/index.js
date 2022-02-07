@@ -33,7 +33,7 @@ class CellWrapper extends Cell {
     }
 
     setNewState() {
-        this.state = this.nextState || 0;
+        this.setState(this.nextState || 0);
     }
 
     addNeighbours = (board) => {
