@@ -54,8 +54,8 @@ class Board {
 
 
     initializeBoard() {
-        //this.createRandomStates();
-        this.createCustomizeStates();
+        this.createRandomStates();
+        //this.createCustomizeStates();
 
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {

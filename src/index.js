@@ -1,8 +1,9 @@
 const logUpdate = require('log-update');
+const { rows, columns } = require('./utils/constants')
 const Board = require('./model/Board');
 
 const start = () => {
-    const board = new Board(10, 10);
+    const board = new Board(rows, columns);
     board.initializeBoard();
 
     setInterval(() => {

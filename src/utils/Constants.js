@@ -1,4 +1,7 @@
-export const boardX = 500;
-export const boardY = 500;
-export const rows = 100;
-export const columns = 100;
+const rows = 10;
+const columns = 10;
+
+module.exports = {
+    rows,
+    columns
+}
