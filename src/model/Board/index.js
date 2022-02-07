@@ -30,14 +30,26 @@ class Board {
     }
 
     createCustomizeStates() {
-        this.board[5][2].setNextState(1);
-        this.board[5][2].setNewState();
+        this.board[3][3].setNextState(1);
+        this.board[3][3].setNewState();
+
+        this.board[3][5].setNextState(1);
+        this.board[3][5].setNewState();
+
+        this.board[4][3].setNextState(1);
+        this.board[4][3].setNewState();
+
+        this.board[4][4].setNextState(1);
+        this.board[4][4].setNewState();
 
         this.board[5][3].setNextState(1);
         this.board[5][3].setNewState();
 
-        this.board[5][4].setNextState(1);
-        this.board[5][4].setNewState();
+        this.board[5][5].setNextState(1);
+        this.board[5][5].setNewState();
+
+        this.board[6][4].setNextState(1);
+        this.board[6][4].setNewState();
     }
 
 
@@ -58,9 +70,9 @@ class Board {
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 if (this.board[i][j].state === 1) {
-                    result += "#"
+                    result += " # "
                 } else {
-                    result += "."
+                    result += " . "
                 }
             }
             result += "\n"

@@ -24,16 +24,16 @@ class Agent extends Cell {
     applyRules() {
         const totalAliveNeighbours = this.calculateAliveNeighbours();
 
-        if (totalAliveNeighbours < 2 || totalAliveNeighbours > 3) {
+        if (this.state == 1 && (totalAliveNeighbours < 2 || totalAliveNeighbours > 3)) {
             this.setNextState(0)
         }
-        if (totalAliveNeighbours === 3) {
+        if (this.state === 0 && totalAliveNeighbours === 3) {
             this.setNextState(1);
         }
     }
 
     setNewState() {
-        this.state = this.nextState;
+        this.state = this.nextState || 0;
     }
 
     addNeighbours = (board) => {
