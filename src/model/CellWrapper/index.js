@@ -1,4 +1,5 @@
-const Cell = require('../Cell')
+const Cell = require('../Cell');
+const { ACTIVE, INACTIVE } = require('../../utils/constants');
 
 class CellWrapper extends Cell {
     constructor(x, y, state) {
@@ -25,11 +26,11 @@ class CellWrapper extends Cell {
         const totalAliveNeighbours = this.calculateAliveNeighbours();
         this.nextState = this.state;
 
-        if (this.state == 1 && (totalAliveNeighbours < 2 || totalAliveNeighbours > 3)) {
-            this.setNextState(0)
+        if (this.state === ACTIVE && (totalAliveNeighbours < 2 || totalAliveNeighbours > 3)) {
+            this.setNextState(INACTIVE)
         }
-        if (this.state === 0 && totalAliveNeighbours === 3) {
-            this.setNextState(1);
+        if (this.state === INACTIVE && totalAliveNeighbours === 3) {
+            this.setNextState(ACTIVE);
         }
     }
 
