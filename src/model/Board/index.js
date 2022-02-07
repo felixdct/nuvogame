@@ -23,16 +23,27 @@ class Board {
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 const state = Math.floor(Math.random()*2);
-                this.board[i][j] = new Agent(i,j,state);
+                this.board[i][j].setNextState(state);
+                this.board[i][j].setNewState();
             }
         }
     }
 
+    createCustomizeStates() {
+        this.board[5][2].setNextState(1);
+        this.board[5][2].setNewState();
+
+        this.board[5][3].setNextState(1);
+        this.board[5][3].setNewState();
+
+        this.board[5][4].setNextState(1);
+        this.board[5][4].setNewState();
+    }
+
 
     initializeBoard() {
-        this.createRandomStates();
-        //this.board[5,2]
-        
+        //this.createRandomStates();
+        this.createCustomizeStates();
 
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
