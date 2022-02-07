@@ -19,13 +19,18 @@ class Board {
         return matrix;
     }
 
-    initializeBoard() {
+    createRandomStates() {
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
                 const state = Math.floor(Math.random()*2);
                 this.board[i][j] = new Agent(i,j,state);
             }
         }
+    }
+
+
+    initializeBoard() {
+        this.createRandomStates();
 
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
@@ -38,7 +43,11 @@ class Board {
         let result = "";
         for (let i = 0; i < this.rows; i++) {
             for (let j = 0; j < this.columns; j++) {
-                result += this.board[i][j].state;
+                if (this.board[i][j].state === 1) {
+                    result += "#"
+                } else {
+                    result += "."
+                }
             }
             result += "\n"
         }

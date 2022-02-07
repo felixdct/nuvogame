@@ -19,7 +19,7 @@ class Agent extends Cell {
         return sum;
     }
 
-    applyConwaysRules() {
+    applyRules() {
         const totalAliveNeighbours = this.calculateAliveNeighbours();
         this.nextState = this.state;
         if (
