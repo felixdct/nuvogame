@@ -1,14 +1,16 @@
 const logUpdate = require('log-update');
 const { rows, columns } = require('./utils/constants')
 const Board = require('./model/Board');
+const BoardService = require('./service/BoardService');
 
 const start = () => {
     const board = new Board(rows, columns);
-    board.initializeBoard();
+    const boardService = new BoardService(board);
+    boardService.initializeBoard();
 
     setInterval(() => {
-        logUpdate(board.draw());
-        board.updateBoard();
+        logUpdate(boardService.draw());
+        boardService.updateBoard();
     }, 1000);
 }
 

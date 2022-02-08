@@ -8,6 +8,18 @@ class Cell {
     setState(state) {
         this.state = state;
     }
+
+    getState() {
+        return this.state;
+    }
+    
+    getX() {
+        return this.x;
+    }
+
+    getY() {
+        return this.y;
+    }
 }
 
 module.exports = Cell;
